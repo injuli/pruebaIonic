@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from '../../environments/environment';
-
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -10,14 +8,13 @@ import { environment } from '../../environments/environment';
 export class Tab2Page implements OnInit {
 
   map: mapboxgl.Map;
-  style= 'mapbox://styles/mapbox/outdoors-v9';
-  lat = 2.9376145;
-  lng = -75.2660218;
+  style = 'mapbox://styles/mapbox/streets-v11';
+  lat = 3.42158;
+  lng =  -76.5205;
 
   constructor() {
-    mapboxgl.accessToken = environment.mapbox.accessToken
-    // mapboxgl.accessToken = 'pk.eyJ1IjoiaW5qdWxpIiwiYSI6ImNqeW95ODJ0bzE5dTEzZHM4eHVod20xbWIifQ.rNBV_OWPHu1CTxAyTYLNBg';
-     console.log(mapboxgl.accessToken);
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaW5qdWxpIiwiYSI6ImNqeW95ODJ0bzE5dTEzZHM4eHVod20xbWIifQ.rNBV_OWPHu1CTxAyTYLNBg';
+    // console.log(mapboxgl.accessToken);
   }
 
   ngOnInit() {
@@ -31,10 +28,10 @@ export class Tab2Page implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 13,
+      zoom: 9,
       center: [this.lng, this.lat]
     });
-
+    this.map.addControl(new mapboxgl.NavigationControl());
     console.log(this.map);
   }
 
