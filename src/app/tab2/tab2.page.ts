@@ -31,7 +31,16 @@ export class Tab2Page implements OnInit {
       zoom: 9,
       center: [this.lng, this.lat]
     });
-    this.map.addControl(new mapboxgl.NavigationControl());
+    const nav = new mapboxgl.NavigationControl();
+    this.map.addControl(nav, 'top-left');
+
+    const geoLocate = new mapboxgl.GeolocateControl();
+    this.map.addControl(geoLocate);
+    geoLocate.on('geolocate', function(e) {
+        console.log('geolocated');
+        this.map.setZoom(8);
+    });
+
     console.log(this.map);
   }
 
