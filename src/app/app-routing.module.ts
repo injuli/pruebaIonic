@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  { path: 'cargar-gpx', loadChildren: './cargar-gpx/cargar-gpx.module#CargarGpxPageModule' }
 ];
 @NgModule({
   imports: [

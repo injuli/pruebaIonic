@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import * as mapboxgl from 'mapbox-gl';
 @Component({
   selector: 'app-tab2',
@@ -12,12 +13,17 @@ export class Tab2Page implements OnInit {
   lat = 3.42158;
   lng = -76.5205;
 
-  constructor() {
+
+  constructor( public navCtrl: NavController) {
     (mapboxgl as typeof mapboxgl).accessToken = 'pk.eyJ1IjoiaW5qdWxpIiwiYSI6ImNqeW95ODJ0bzE5dTEzZHM4eHVod20xbWIifQ.rNBV_OWPHu1CTxAyTYLNBg';
     // console.log(mapboxgl.accessToken);
   }
 
   ngOnInit() {
+  }
+
+  goToCargar() {
+    this.navCtrl.navigateForward(['/cargar-gpx']);
   }
 
   ionViewDidEnter() {
