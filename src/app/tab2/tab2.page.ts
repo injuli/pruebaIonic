@@ -10,10 +10,10 @@ export class Tab2Page implements OnInit {
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 3.42158;
-  lng =  -76.5205;
+  lng = -76.5205;
 
   constructor() {
-    (mapboxgl as typeof mapboxgl).accessToken =  'pk.eyJ1IjoiaW5qdWxpIiwiYSI6ImNqeW95ODJ0bzE5dTEzZHM4eHVod20xbWIifQ.rNBV_OWPHu1CTxAyTYLNBg';
+    (mapboxgl as typeof mapboxgl).accessToken = 'pk.eyJ1IjoiaW5qdWxpIiwiYSI6ImNqeW95ODJ0bzE5dTEzZHM4eHVod20xbWIifQ.rNBV_OWPHu1CTxAyTYLNBg';
     // console.log(mapboxgl.accessToken);
   }
 
@@ -36,10 +36,11 @@ export class Tab2Page implements OnInit {
 
     const geoLocate = new mapboxgl.GeolocateControl();
     this.map.addControl(geoLocate);
-    geoLocate.on('geolocate', function(e) {
-        console.log('geolocated');
-        this.map.setZoom(8);
+    geoLocate.on('geolocate', function() {
+      console.log('geolocated');
+      this.map.setZoom(8);
     });
+
 
     console.log(this.map);
   }
